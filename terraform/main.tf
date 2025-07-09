@@ -2,16 +2,11 @@ locals {
   app = "${var.project}-picture"
 }
 
-resource "kubernetes_service_account" "sa" {
+data "kubernetes_service_account" "sa" {
   metadata {
     name      = "${var.project}-service-account"
     namespace = var.environment
   }
-  image_pull_secret {
-    name = "regcred"
-  }
-
-  automount_service_account_token = true
 }
 
 resource "kubernetes_deployment_v1" "picture_service" {

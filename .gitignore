@@ -116,4 +116,4 @@ ENV/
 
 # Terraform stuff
 .terraform*
-terraform.tfstate*
+terraform.*
